@@ -37,12 +37,23 @@ Specification:
   "width": 600,
   "height": 400,
   "padding": 5,
+  "config": {
+    "background": "#333",
+    "axis": {
+      "labelColor": "#ccc",
+      "titleColor": "#ccc"
+    },
+    "legend": {
+      "fillColor": "#eee", "padding": 10, "symbolOffset":10,
+      "labelColor": "#444"
+    }
+  },
   "data": [
     { "name": "table",
       "format": {"type": "csv", "parse": "auto"},
       "transform": [
         { "type": "collect", "sort": {"field": "b", "order":"ascending"}
-        }
+}
       ]
     }
   ],
@@ -82,21 +93,28 @@ Specification:
       "labelFontSize": 14,
       "title": "Label X", "titleFontSize": 15,
       "grid":true,
-      "gridOpacity": 0.6
+      "gridOpacity": 0.6,
+      "encode": {
+          "grid": {
+              "update": {
+                "stroke": {"value": "#666"}
+              }
+          } 
+       }
     },
     {
       "orient": "left", "scale": "y",
       "labelFontSize": 14,
-      "title": "Label Y", "titleFontSize": 15,
+      "title": "Label Y", "titleFontSize": 16,
       "grid": true,
-        "encode": {
-            "grid": {
+      "encode": {
+          "grid": {
               "update": {
-                "stroke": {"value": "#aaa"},
-                "opacity": {"value": 0.2}
+                "stroke": {"value": "#666"},
+                "opacity": {"value": 0.5}
               }
-            } 
-          }
+          } 
+       }
     }
   ],
 
@@ -143,7 +161,7 @@ Specification:
       },
       "orient": "right",
       "offset": -100,
-      "symbolType": "M-4,0H1",
+      "symbolType": "M-3,0H1",
       "symbolStrokeWidth": { "value": 3}
     },
     {
@@ -157,7 +175,7 @@ Specification:
       },
       "orient": "right",
       "offset": -100,
-      "symbolType": "M-4,0H1",
+      "symbolType": "M-3,0H1",
       "symbolStrokeWidth": { "value": 3}
     }
   ]
